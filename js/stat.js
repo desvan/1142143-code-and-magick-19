@@ -1,20 +1,20 @@
 'use strict';
 
-var X = 100;
-var Y = 10;
+var STAT_LEFT = 100;
+var STAT_TOP = 10;
 var WIDTH = 420;
 var HEIGHT = 270;
 var INTERLINE = 20;
 
 window.renderStatistics = function (ctx, names, times) {
-  var textOffsetLeft = X + 20;
-  var textOffsetTop = Y + 30;
+  var textOffsetLeft = STAT_LEFT + 20;
+  var textOffsetTop = STAT_TOP + 30;
 
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-  ctx.fillRect(X + 10, Y + 10, WIDTH, HEIGHT);
+  ctx.fillRect(STAT_LEFT + 10, STAT_TOP + 10, WIDTH, HEIGHT);
 
   ctx.fillStyle = '#ffffff';
-  ctx.fillRect(X, Y, WIDTH, HEIGHT);
+  ctx.fillRect(STAT_LEFT, STAT_TOP, WIDTH, HEIGHT);
 
   ctx.font = '16px PT Mono';
   ctx.fillStyle = 'rgba(0, 0, 0, 1)';
@@ -42,8 +42,8 @@ var drawColumn = function (ctx, index, name, time, height) {
   var columnWidth = 40;
   var columnOffset = 50;
   var columnOuterWidth = columnWidth + columnOffset;
-  var chartOffsetLeft = X + 50;
-  var chartOffsetBottom = Y + 20;
+  var chartOffsetLeft = STAT_LEFT + 50;
+  var chartOffsetBottom = STAT_TOP + 20;
   var x = chartOffsetLeft + columnOuterWidth * index;
   var y = HEIGHT - chartOffsetBottom - height;
   var timeY = y - 5;
