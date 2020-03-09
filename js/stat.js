@@ -1,25 +1,25 @@
 'use strict';
 
-var STAT_LEFT = 100;
-var STAT_TOP = 10;
-var WIDTH = 420;
-var HEIGHT = 270;
-var INTERLINE = 20;
+var STATISTICS_OFFSET_LEFT = 100;
+var STATISTICS_OFFSET_TOP = 10;
+var STATISTICS_WIDTH = 420;
+var STATISTICS_HEIGHT = 270;
+var LINE_HEIGHT = 20;
 
 window.renderStatistics = function (ctx, names, times) {
-  var textOffsetLeft = STAT_LEFT + 20;
-  var textOffsetTop = STAT_TOP + 30;
+  var textOffsetLeft = STATISTICS_OFFSET_LEFT + 20;
+  var textOffsetTop = STATISTICS_OFFSET_TOP + 30;
 
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-  ctx.fillRect(STAT_LEFT + 10, STAT_TOP + 10, WIDTH, HEIGHT);
+  ctx.fillRect(STATISTICS_OFFSET_LEFT + 10, STATISTICS_OFFSET_TOP + 10, STATISTICS_WIDTH, STATISTICS_HEIGHT);
 
   ctx.fillStyle = '#ffffff';
-  ctx.fillRect(STAT_LEFT, STAT_TOP, WIDTH, HEIGHT);
+  ctx.fillRect(STATISTICS_OFFSET_LEFT, STATISTICS_OFFSET_TOP, STATISTICS_WIDTH, STATISTICS_HEIGHT);
 
   ctx.font = '16px PT Mono';
   ctx.fillStyle = 'rgba(0, 0, 0, 1)';
   ctx.fillText('Ура вы победили!', textOffsetLeft, textOffsetTop);
-  ctx.fillText('Список результатов:', textOffsetLeft, textOffsetTop + INTERLINE);
+  ctx.fillText('Список результатов:', textOffsetLeft, textOffsetTop + LINE_HEIGHT);
 
   drawColumns(ctx, names, times);
 };
@@ -42,12 +42,12 @@ var drawColumn = function (ctx, index, name, time, height) {
   var columnWidth = 40;
   var columnOffset = 50;
   var columnOuterWidth = columnWidth + columnOffset;
-  var chartOffsetLeft = STAT_LEFT + 50;
-  var chartOffsetBottom = STAT_TOP + 20;
+  var chartOffsetLeft = STATISTICS_OFFSET_LEFT + 50;
+  var chartOffsetBottom = STATISTICS_OFFSET_TOP + 20;
   var x = chartOffsetLeft + columnOuterWidth * index;
-  var y = HEIGHT - chartOffsetBottom - height;
+  var y = STATISTICS_HEIGHT - chartOffsetBottom - height;
   var timeY = y - 5;
-  var nameY = HEIGHT - (chartOffsetBottom - INTERLINE);
+  var nameY = STATISTICS_HEIGHT - (chartOffsetBottom - LINE_HEIGHT);
   var saturate = Math.round(Math.random() * 100);
   var randomColor = 'hsl(240, ' + saturate + '%, 50%)';
 
